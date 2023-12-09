@@ -1,13 +1,11 @@
 import express from 'express';
+import routes from './routes/api.js';
 
 // Create express instance
 const app = express();
 
-app.get('/api', (req, res) => {
-  console.log('GET request');
-  res.send({nome: 'Momo'});
-});
-
+// initilize routes
+app.use('/api', routes);
 
 // listen for requests (process.env.port is if we deploy on platform Heroku, which uses an environment variable to set the port)
 app.listen(process.env.port || 4000, () => {
