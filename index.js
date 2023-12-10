@@ -1,8 +1,12 @@
 import express from 'express';
 import routes from './routes/api.js';
+import bodyParser from 'body-parser';
 
 // Create express instance
 const app = express();
+
+// use bodyParser to parse the request body
+app.use(bodyParser.json());
 
 // initilize routes
 app.use('/api', routes);
