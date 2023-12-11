@@ -21,14 +21,14 @@ router.put('/users/:id', (req, res, next) => {
     User.findOne({_id:req.params.id}).then((user) => {
       res.send(user);
     });
-  });
+  }).catch(next);
 });
 
 // delete a user from the db
 router.delete('/users/:id', (req, res, next) => {
   User.findByIdAndDelete({_id:req.params.id}).then((user) => {
     res.send(user);
-  });
+  }).catch(next);;
 });
 
 export default router; 
