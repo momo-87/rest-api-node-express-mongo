@@ -12,7 +12,7 @@ router.get('/users', (req, res, next) => {
 router.post('/users', (req, res, next) => {
   User.create(req.body).then((user) => {
     res.send(user);
-  }).catch(next); // catch any errors, call the next middleware in the chain (see index.js)
+  }).catch(next); // catch any errors, call the next middleware (error handling middleware) in the chain (see index.js)
 });
 
 // update a user in the db
@@ -22,7 +22,9 @@ router.put('/users/:id', (req, res, next) => {
 
 // delete a user from the db
 router.delete('/users/:id', (req, res, next) => {
-  res.send({type: 'DELETE'});
+  User.findByIdAndDelete({_id:req.params.id}).then((user) => {
+    res.send(user);
+  });
 });
 
 export default router; 
