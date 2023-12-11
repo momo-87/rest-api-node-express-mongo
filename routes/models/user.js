@@ -15,4 +15,5 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false
   }
+  // add in geo location
 });
