@@ -17,7 +17,11 @@ router.post('/users', (req, res, next) => {
 
 // update a user in the db
 router.put('/users/:id', (req, res, next) => {
-  res.send({type: 'PUT'});
+  User.findByIdAndUpdate({_id:req.params.id},req.body).then(() => {
+    User.findOne({_id:req.params.id}).then((user) => {
+      res.send(user);
+    });
+  });
 });
 
 // delete a user from the db
