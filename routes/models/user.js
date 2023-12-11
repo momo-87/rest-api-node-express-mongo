@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-// create Schema  & model
+// create Schema
 const UserSchema = new Schema({
   name: {
     type: String,
@@ -17,3 +17,6 @@ const UserSchema = new Schema({
   }
   // add in geo location
 });
+
+// create model
+const User = mongoose.model("user", UserSchema);
