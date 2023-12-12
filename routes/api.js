@@ -22,7 +22,7 @@ router.get('/houses', (req, res, next) => {
           type: 'Point',
           coordinates: [longitude, latitude]
         },
-        distanceField: 'dist.calculated',
+        distanceField: 'distance',
         maxDistance: 100000,
         spherical: true
       },
