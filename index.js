@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 const app = express();
 
 // connect to mongodb (user is the database name and mongo will create it if it doesn't exist yet)
-mongoose.connect('mongodb://127.0.0.1:27017/user');
+mongoose.connect('mongodb://127.0.0.1:27017/house');
 mongoose.Promise = global.Promise; // use ES6 promises, mongoose.Promise is deprecated
 
 // use bodyParser to parse the request body
@@ -18,7 +18,6 @@ app.use('/api', routes);
 
 // error handling middleware
 app.use((err, req, res, next) => {
-  // console.log(err);
   res.status(422).send({error: err.message});
 });
 
