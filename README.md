@@ -6,7 +6,9 @@
 - [x] Creating an Express App
 - [x] Handling Requests
 - [x] Creating Routes
-- [x] 
+- [x] Postman
+- [x] Handling POST Requests middleware
+- [x] Models Schemas
 
 
 
