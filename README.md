@@ -1,9 +1,9 @@
 # rest-api-node-express-mongo
 
 ## Features
-Setting up Node js
-HTTP Methods
-Creating an Express App
+- [x] Setting up Node js
+- [x] HTTP Methods
+- [x] Creating an Express App
 
 
 
