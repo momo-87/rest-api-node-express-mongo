@@ -11,7 +11,10 @@
 - [x] Models Schemas
 - [x] Saving Data to MongoDB
 - [x] Error Handling
-- [x] 
+- [x] Handling DELETE Requests
+- [x] PUT Requests
+- [x] GeoJSON
+- [x] GET Requests
 
 
 
