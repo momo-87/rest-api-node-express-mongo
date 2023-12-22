@@ -1,5 +1,10 @@
 # rest-api-node-express-mongo
 
 ## Features
-- [x]
+Setting up Node js
+HTTP Methods
+Creating an Express App
+
+
+
 
