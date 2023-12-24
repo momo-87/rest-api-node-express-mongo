@@ -17,5 +17,74 @@
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="https://unpkg.com/react@15/dist/react.js"></script>
   <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+
+  <!-- Create React Componet -->
+  <script type="text/babel">
+    let Houses = React.createClass({
+
+      getInitialState: function(){
+        return ({
+          houses: []
+        });
+      },
+      render: function(){
+        let houses = this.state.houses;
+        houses = houses.map(function(house, index){
+          return(
+            <li key={index}>
+              <span className={house.availabe}></span>
+              <span className="title">{house.title}</span>
+              <span className="location">{house.location}</span>
+              <span className="dist">{Math.floor(house.distance/1000)} km</span>
+            </li>
+          );
+        });
+
+        return(
+          <div id="ninja-container">
+            <form id="search" onSubmit={this.handleSubmit}>
+              <label for="">Enter your latitude:</label>
+              <input type="text" ref="lat" placeholder="latitude" required />
+
+              <label for="">Enter your longitude:</label>
+              <input type="text" ref="long" placeholder="longitude" required />
+
+              <input type="submit" value="Find Houses" />
+            </form>
+
+            <ul>
+              {houses}
+            </ul>
+          </div>
+        );
+      },
+      handleSubmit: function(e){
+        e.preventDefault();
+        let lat = this.refs.lat.value;
+        let long = this.refs.long.value;
+        
+
+        fetch('api/houses?lat='+lat+'&long='+long)
+          .then(function(response){
+            return response.json()
+          })
+          .then(function(data){
+            console.log(data);
+            return data;
+          })
+          .then(json => {
+            console.log(json);
+            this.setState({
+              houses: json
+            });
+        });
+      }
+    });
+
+    ReactDOM.render(
+      <Houses />,
+      document.getElementById('houses')
+    );
+  </script>
 </body>
 </html>
