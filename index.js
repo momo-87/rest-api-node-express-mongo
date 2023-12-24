@@ -10,7 +10,7 @@ const app = express();
 mongoose.connect('mongodb://127.0.0.1:27017/house');
 mongoose.Promise = global.Promise; // use ES6 promises, mongoose.Promise is deprecated
 
-app.use(express.static('public'));
+app.use(express.static('public')); // use express static to serve static files
 
 // use bodyParser to parse the request body
 app.use(bodyParser.json());
